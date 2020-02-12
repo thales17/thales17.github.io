@@ -1,0 +1,19 @@
+title = "About Me"
+filename = "about.html"
+
+[[content]]
+kind = "image"
+source = "assets/photo.png"
+alt = "My photo"
+
+[[content]]
+kind = "paragraph"
+body = """
+Hello, my name is Adam Richardson. I am a software engineer from Louisville, Kentucky. On this site you will find articles written by me covering various topics that I am interested in. Currently I am interested in systems programming using the Go and C programming languages, Linux and BSD operating sytems. I also enjoy graphics and game programming.
+"""
+
+[[content]]
+kind = "paragraph"
+body = """
+When not programming you can find me walking around the town listening to music or hanging out in a park with my three daughters. Checkout my <a href="https://github.com/thales17">github</a> if you would like to see more of the projects I'm working on. Also checkout my <a href="resume.html">resume</a>.
+"""

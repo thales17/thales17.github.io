@@ -1,0 +1,62 @@
+title = "Adam Richardson's Resume"
+filename = "resume.txt"
+
+[[content]]
+kind = "paragraph"
+title = "Intro"
+body = """
+I am a software engineer with 12 years of experience. I have a passion for solving problems through software and systems design. I am a dedicated student of computer programming and constantly looking for ways to improve. I love working on balanced teams with skilled people in other disciplines.
+"""
+
+[[content]]
+kind = "list"
+title = "Personal"
+items = [
+	"Software Engineer, Kentucky",
+]
+
+[[content]]
+kind = "list"
+title = "Work History"
+items = [
+	"Forest Giant, Louisville, KY 2011-2020: Lead Software Engineer",
+	"FacilityOne, Louisville, KY 2008-2010: Software Engineer",
+]
+
+[[content]]
+kind = "list"
+title = "Education"
+items = [
+	"BS in Computer Engineering, University of Louisville Speed School of Engineering 2008-2010",
+	"BA in Philosophy, University of Louisville College of Arts and Sciences 2002-2006"
+]
+
+[[content]]
+kind = "list"
+title = "Notable Works"
+items = [
+	"Lead a multi-year international project to implement custom collaboration and presentation software in the aviation industry.",
+	"Represented my organization when presenting to clients both in the US and abroad",
+	"Collaborated on a balanced team to build a customer facing web app that integrated with an existing work order management system.",
+	"Created a web socket multiplexer for a custom web server for a Slack app that integrates with many clients.",
+	"Designed and implemented an iOS app to control industrial equipment via ModBus and Ethernet I/P.",
+	"Collaborated on a distributed computing application for a museum installation.",
+	"Built an iOS CoreMotion tracking app that was featured in the app store.",
+	"Designed a photobooth application that allows photos to be transferred via USB from a DSLR through a PC and previewed on an iPad.",
+	"Created a render farm that integrated with the gearman job server to stitch gigapixel panoramic photographs.",
+	"Created all interactive installation software for a CES booth. Applications ranged from touch screen kiosks to video playback kiosks.",
+]
+
+[[content]]
+kind = "list"
+title = "Highlighted Skills"
+items = [
+	"System Architecture particularly on Unix based systems",
+	"Systems programming w/ Go, C",
+	"Unix shell scripting",
+	"Python",
+	"nodejs / ECMAScript",
+	"Serverless Cloud Architecture (AWS, Firebase)",
+	"Frontend Web Development (React / Angular)",
+	"iOS / Android Development (Objective-C / Swift, Java)",	
+]

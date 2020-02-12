@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Wikipedia Plot of Solaris</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		
+		<meta property="og:title" content="Wikipedia Plot of Solaris">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://www.adamjrichardson.com/solaris.toml">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="">
+	
+		<style>
+body { 
+	color: black; 
+	background-color: #eff4f3;
+	font-family:  Helvetica, "Trebuchet MS", sans-serif;
+	margin: auto;
+	padding: 1em;
+	max-width: 72em;
+}
+ 
+pre { 
+	background-color: black; 
+	color: white; 
+	font-size: 12pt; 
+	padding: 1em;
+	max-height: 50em;
+	overflow: auto;
+	-moz-tab-size: 2;
+	tab-size: 2;
+	font-family: monospace;
+}
+
+a {
+	font-weight: bold;
+	padding-right: .25em;
+}
+
+a:visited {
+	color: black;
+}
+
+a:link {
+	color: black;
+}
+
+img {
+	float: left;
+	max-width: 100%;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+p {
+	text-align: justify;
+	line-height: 1.5em;
+}
+
+nav {
+	width: 100%;
+	text-align: right;
+	margin-bottom: 2em;
+}
+
+ul {
+}
+
+li {
+	margin-bottom: .25em;
+}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="rss.xml">RSS</a>
+			<a href="https://github.com/thales17">Github</a>
+		</nav>
+	
+	
+		<h1>Wikipedia Plot of Solaris</h1>
+	
+	
+		<h5>12/31/2019</h5>
+	
+	
+		
+		
+		<p>Solaris chronicles the ultimate futility of attempted communications with the extraterrestrial life inhabiting a distant alien planet named Solaris. The planet is almost completely covered with an ocean of gel that is revealed to be a single, planet-encompassing entity. Terran scientists conjecture it is a living and a sentient being, and attempt to communicate with it. 
+</p>
+		
+	
+		
+		
+		<p>Kris Kelvin, a psychologist, arrives aboard Solaris Station, a scientific research station hovering near the oceanic surface of Solaris. The scientists there have studied the planet and its ocean for many decades, mostly in vain. A scientific discipline known as Solaristics has degenerated over the years to simply observing, recording and categorizing the complex phenomena that occur upon the surface of the ocean. Thus far, the scientists have only compiled an elaborate nomenclature of the phenomena, and do not yet understand what such activities really mean. Shortly before Kelvin's arrival, the crew exposed the ocean to a more aggressive and unauthorized experimentation with a high-energy X-ray bombardment. Their experimentation gives unexpected results and becomes psychologically traumatic for them as individually flawed humans. 
+</p>
+		
+	
+		
+		
+		<p>The ocean's response to this intrusion exposes the deeper, hidden aspects of the personalities of the human scientists, while revealing nothing of the ocean's nature itself. It does this by materializing physical simulacra, including human ones; Kelvin confronts memories of his dead lover and guilt about her suicide. The "guests" of the other researchers are only alluded to. 
+</p>
+		
+	
+		
+		
+		<pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+	printf(&#34;Hello, world\n&#34;);
+
+	return 0;
+}
+</pre>
+		
+	
+		
+		
+		<pre>import fmt
+
+func main() {
+	fmt.Println(&#34;Hello, world&#34;)
+}
+</pre>
+		
+	
+	</body>
+</html>
+

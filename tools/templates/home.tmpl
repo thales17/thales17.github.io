@@ -1,0 +1,9 @@
+{{template "header.tmpl" .}}	
+	<h1>{{.Title}}</h1>
+	<p>{{.Body}}</p>
+	<ul>
+	{{range .Posts}}
+		<li>{{.Date}}: <a href="{{.Filename}}">{{.Title}}</a></li>
+	{{end}}
+	</ul>
+{{template "footer.tmpl"}}

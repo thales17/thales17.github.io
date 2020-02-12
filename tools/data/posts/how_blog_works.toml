@@ -1,0 +1,96 @@
+title = "How this blog works"
+date = "02/12/2020"
+description = "How I made this custom static site blog using only Go Web Templates and TOML"
+filename = "how_blog_works.html"
+
+[[content]]
+kind = "paragraph"
+body = """
+Hello, my name is Adam Richardson and on this first post of my blog I wanted to discuss how it was put together. This site is a static site made using a variety of tools but most importantly <a href="https://golang.org/pkg/text/template/">Go Web Templates</a> and <a href="https://github.com/toml-lang/toml">TOML markup</a>. My goal was to build a minimal blog that allows me to easily make posts.
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Static site?"
+body = """
+- No worry of DDOS
+- Easily parsable by robots
+- CDN hostable
+- Fast 
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Why not use an existing static site generator?"
+body = """
+- Handwritning HTML is error prone and time consuming
+- Its easy to make your own
+- Building your lets you completely customize your site
+- Customize the process of your site
+- Free from keeping up with the breakneck pace of web tools
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Go Templates"
+body = """
+- Built into the go standard library
+- Easy and robust
+- Uses go structs as the model
+- example rendering home.toml in home.tmpl and rss.tmpl
+- htmlSafe and FuncMap for creating template extensions
+- metatags
+"""
+
+[[content]]
+kind = "paragraph"
+title = "TOML"
+body = """
+- Markup language easily edited by humans
+- Can be serialized into a go struct
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Organization"
+body = """
+- tools folder
+- main.go
+- assets
+- templates
+- data
+- Makefile
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Style and CSS"
+body = """
+- influences
+- coolers.co
+- fonts / line spacing / sizing 
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Hosting"
+body = """
+- github pages w/ domain name
+"""
+
+[[content]]
+kind = "paragraph"
+title = "How well does it work?"
+body = """
+- DRY!
+- easy to deploy
+- updating the models, templates and data not centralized
+"""
+
+[[content]]
+kind = "list"
+title = "Resources"
+items = [
+	"cooler.co",
+	"Go Template FuncMap blog",
+]

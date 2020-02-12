@@ -1,0 +1,195 @@
+<html>
+	<head>
+		<title>How this blog works</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="How I made this custom static site blog using only Go Web Templates and TOML">
+		
+		<meta property="og:title" content="How this blog works">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://www.adamjrichardson.com/how_blog_works.html">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="How I made this custom static site blog using only Go Web Templates and TOML">
+	
+		<style>
+body { 
+	color: black; 
+	background-color: #eff4f3;
+	font-family:  Helvetica, "Trebuchet MS", sans-serif;
+	margin: auto;
+	padding: 1em;
+	max-width: 72em;
+}
+ 
+pre { 
+	background-color: black; 
+	color: white; 
+	font-size: 12pt; 
+	padding: 1em;
+	max-height: 50em;
+	overflow: auto;
+	-moz-tab-size: 2;
+	tab-size: 2;
+	font-family: monospace;
+}
+
+a {
+	font-weight: bold;
+	padding-right: .25em;
+}
+
+a:visited {
+	color: black;
+}
+
+a:link {
+	color: black;
+}
+
+img {
+	float: left;
+	max-width: 100%;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+p {
+	text-align: justify;
+	line-height: 1.5em;
+}
+
+nav {
+	width: 100%;
+	text-align: right;
+	margin-bottom: 2em;
+}
+
+ul {
+}
+
+li {
+	margin-bottom: .25em;
+}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="rss.xml">RSS</a>
+			<a href="https://github.com/thales17">Github</a>
+		</nav>
+	
+	
+		<h1>How this blog works</h1>
+	
+	
+		<h5>02/12/2020</h5>
+	
+	
+		
+		
+		<p>Hello, my name is Adam Richardson and on this first post of my blog I wanted to discuss how it was put together. This site is a static site made using a variety of tools but most importantly <a href="https://golang.org/pkg/text/template/">Go Web Templates</a> and <a href="https://github.com/toml-lang/toml">TOML markup</a>. My goal was to build a minimal blog that allows me to easily make posts.
+</p>
+		
+	
+		
+		<h3>Static site?</h3>
+		
+		
+		<p>- No worry of DDOS
+- Easily parsable by robots
+- CDN hostable
+- Fast 
+</p>
+		
+	
+		
+		<h3>Why not use an existing static site generator?</h3>
+		
+		
+		<p>- Its easy to make your own
+- Building your lets you completely customize your site
+- Customize the process of your site
+- Free from keeping up with the breakneck pace of web tools
+</p>
+		
+	
+		
+		<h3>Go Templates</h3>
+		
+		
+		<p>- Built into the go standard library
+- Easy and robust
+- Uses go structs as the model
+- example rendering home.toml in home.tmpl and rss.tmpl
+- htmlSafe and FuncMap for creating template extensions
+</p>
+		
+	
+		
+		<h3>TOML</h3>
+		
+		
+		<p>- Markup language easily edited by humans
+- Can be serialized into a go struct
+</p>
+		
+	
+		
+		<h3>Organization</h3>
+		
+		
+		<p>- tools folder
+- main.go
+- assets
+- templates
+- data
+- Makefile
+</p>
+		
+	
+		
+		<h3>Style and CSS</h3>
+		
+		
+		<p>- influences
+- coolers.co
+- 
+</p>
+		
+	
+		
+		<h3>Hosting</h3>
+		
+		
+		<p>- github pages w/ domain name
+</p>
+		
+	
+		
+		<h3>How well does it work?</h3>
+		
+		
+		<p>- DRY!
+- easy to deploy
+- updating the models, templates and data not centralized
+</p>
+		
+	
+		
+		<h3>Resources</h3>
+		
+		
+		<ul>
+			
+			<li>cooler.co</li>
+			
+			<li>Go Template FuncMap blog</li>
+			
+		</ul>
+		
+	
+	</body>
+</html>
+
