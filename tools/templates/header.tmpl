@@ -1,15 +1,15 @@
 <html>
 	<head>
-		<title>Adam Richardson&#39;s Blog</title>
+		<title>{{.Title}}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Adam Richardson&#39;s personal blog (home)">
+		<meta name="description" content="{{.Description}}">
 		
-		<meta property="og:title" content="Adam Richardson&#39;s Blog">
+		<meta property="og:title" content="{{.Title}}">
 		<meta property="og:type" content="article">
-		<meta property="og:url" content="https://www.adamjrichardson.com">
-		<meta property="og:image" content="shrug.jpg">
-		<meta property="og:description" content="Adam Richardson&#39;s personal blog (home)">
+		<meta property="og:url" content="{{.URL}}">
+		<meta property="og:image" content="{{.Image}}">
+		<meta property="og:description" content="{{.Description}}">
 	
 		<style>
 body { 
@@ -79,15 +79,3 @@ li {
 			<a href="rss.xml">RSS</a>
 			<a href="https://github.com/thales17">Github</a>
 		</nav>
-	
-	<h1>Adam Richardson&#39;s Blog</h1>
-	<p>Welcome to my personal blog.
-</p>
-	<ul>
-	
-		<li>02/12/2020: <a href="how_blog_works.html">How I made this custom static site blog using only Go Web Templates and TOML</a></li>
-	
-	</ul>
-	</body>
-</html>
-

@@ -1,0 +1,7 @@
+title = "Adam Richardson's Blog"
+url = "https://www.adamjrichardson.com"
+image = "shrug.jpg"
+description = "Adam Richardson's personal blog (home)"
+body = """
+Welcome to my personal blog.
+"""
