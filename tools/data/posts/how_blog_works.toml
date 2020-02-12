@@ -1,96 +1,76 @@
-title = "How this blog works"
+title = "How I made this custom static site blog using only Go Web Templates and TOML"
 date = "02/12/2020"
-description = "How I made this custom static site blog using only Go Web Templates and TOML"
+description = "I started a personal blog. My first post is titled: How I made this custom static site blog using only Go Web Templates and TOML"
 filename = "how_blog_works.html"
 
 [[content]]
 kind = "paragraph"
 body = """
-Hello, my name is Adam Richardson and on this first post of my blog I wanted to discuss how it was put together. This site is a static site made using a variety of tools but most importantly <a href="https://golang.org/pkg/text/template/">Go Web Templates</a> and <a href="https://github.com/toml-lang/toml">TOML markup</a>. My goal was to build a minimal blog that allows me to easily make posts.
+Hello, on this first post of my blog I wanted to discuss how it was put together. This site is a static site made using a variety of tools but most importantly <a href="https://golang.org/pkg/text/template/">Go Web Templates</a> and <a href="https://github.com/toml-lang/toml">TOML markup</a>. My goal was to build a minimal blog that allows me to easily make posts.
 """
 
 [[content]]
 kind = "paragraph"
 title = "Static site?"
 body = """
-- No worry of DDOS
-- Easily parsable by robots
-- CDN hostable
-- Fast 
+I chose to use a static site for a variety of reasons. The primary reason is that there are a lot good free hosting options so it would be easy to put the site up. By being a static site, my blog is just a folder with html content being served. This greatly simplifies / removes the need for complex infrastructure like databases or backend API layers. I went out of my way to reduce the amount of http requests needed to load a page of this blog. I wanted this site to be fast and accessible. I am making an effort to be as <a href="https://developer.mozilla.org/en-US/docs/Glossary/semantics">semantic</a> as possible with the HTML tags I use. This way, screen readers or other accessibility tools should be able to parse the content. I also wanted to make site that could be read by people who use a command line web browser like <a href="http://w3m.sourceforge.net/">w3m</a>. All of this isn't to say that I don't appreciate and love some of the more <a href="https://www.filaexplore.com/">flashy</a> things you can now do on the web. In fact, I spent a good portion of my career focusing on building just that. I am a big fan of canvas and wanted to add a flashy canvas background, but I felt it wasn't suited to the purpose of this site. You might find some posts to three.js or canvas projects I work on from this blog in the future; however.
 """
 
 [[content]]
 kind = "paragraph"
 title = "Why not use an existing static site generator?"
 body = """
-- Handwritning HTML is error prone and time consuming
-- Its easy to make your own
-- Building your lets you completely customize your site
-- Customize the process of your site
-- Free from keeping up with the breakneck pace of web tools
-"""
-
-[[content]]
-kind = "paragraph"
-title = "Go Templates"
-body = """
-- Built into the go standard library
-- Easy and robust
-- Uses go structs as the model
-- example rendering home.toml in home.tmpl and rss.tmpl
-- htmlSafe and FuncMap for creating template extensions
-- metatags
+There are many existing great static site generators that I could have used rather than building my own. I have used <a href="https://gohugo.io">Hugo</a> in the past and since it uses Go web templates it is very similar to what I ended up making. In Hugo you write your content with markdown and provide a metadata section at the top of the markdown file called front matter. Hugo lets you choose which config language you want to use for the frontmatter either YAML, TOML, or JSON. While it is a nice feature that it lets you pick which language you prefer, I asked myself what if it was <em>ALL</em> in the chosen front matter language. I first tried JSON and quickly remember that JSON was never intended for human beings to read or write in it. I then went straight to <a href="https://github.com/toml-lang/toml">TOML</a>.  
 """
 
 [[content]]
 kind = "paragraph"
 title = "TOML"
 body = """
-- Markup language easily edited by humans
-- Can be serialized into a go struct
+I had used TOML for config files in the past on projects as well as for my front matter language in Hugo but never for long form text content. At first I wasn't too sure but once I found that it had a <a href="https://github.com/toml-lang/toml#user-content-string">multiline string</a> I feel it was more suited for a blog than JSON. Another perk of TOML is that it can be easily serialized into a Go Struct, which is handy when rendering Go templates. By using multiline strings I am able to write naturally and not worry about escaping characters. I also found a <a href="https://github.com/cespare/vim-toml">syntax plugin for vim</a>. There is one exception to this however and that is HTML inside of a multiline string in TOML.
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Go Templates and Embedded HTML"
+body = """
+In the process of building this blog I gained an appreciation for how powerful go templates are. <a href="https://golang.org/pkg/text/template/#hdr-Nested_template_definitions">Multiple templates</a> can be stored in a memory at a time, allowing templates to reference one another outside of the binary. This allows for almost all of the layout to be handled entirely in the template code. I chose the file extension <code>tmpl</code> and to my surprise vim continued to apply html syntax highlighting to the file despite not having the html extension. To render the templates I created a struct to represent the model of the data and in some cases nested those structs in one another. Most of the structs only coorespond to a single template but the root or home struct does have two templates. The first is the home page of the site and the second is the RSS feed. As a user of RSS readers in the past I never actually looked into the format before making this site. I was pleasantly surprised at how simple RSS is. Like I mentinoed earlier I did hit a snag with Go templates while building this site, embedding HTML into a multiline string. When executing a template go will escape HTML unless told to do otherwise. In order to instruct it to not do this you need to add a new function to the templates FuncMap. This function will tell the template to render the content as html not as a string and preserve the nested content. You can read more about adding functions to the FuncMap <a href="https://curtisvermeeren.github.io/2017/09/14/Golang-Templates-Cheatsheet#encoding">here</a>.
+"""
+
+[[content]]
+kind = "code"
+title = "Adding htmlSafe function to the FuncMap"
+body = """
+htmlSafe := func(html string) template.HTML {
+	return template.HTML(html)
+}
+...
+tmpl, err := template.New("home.tmpl").Funcs(template.FuncMap{
+	"htmlSafe": htmlSafe,
+}).ParseFiles(
+	"templates/home.tmpl",
+	"templates/header.tmpl",
+	"templates/footer.tmpl",
+)
 """
 
 [[content]]
 kind = "paragraph"
 title = "Organization"
 body = """
-- tools folder
-- main.go
-- assets
-- templates
-- data
-- Makefile
+The site is organized in a single <a href="">github repo</a> including both the rendered content and the tools and data to render the content. At the root of the repo you will file the rendered HTML. I chose github pages to host the site since I intended on putting everything on github anyway. You will also fine the CNAME file in the root that tells github to forward adamjrichardson.com requests to this repo. Inside the tools folder things are a little more interesting. I have created a folder for the templates and one for the TOML files called "data". Assets are also stored inside the tools folder are copied up to the root of the repo. The <code>main.go</code> file contains all of the logic for loading the templates and the data and rendering the output. The program will go inside the data folder and grab a few hardcoded tomls for the home page and about page. After that it will grab all of the posts inside the posts directory and sort them by their dates. Finally it renders the output and saves it to the root of the repo. I created a simple <code>Makefile</code> that has two targets <code>clean</code> and <code>build</code>. After writing a posts TOML file I simply run <code>make clean build</code> in the tools folder and it will generate the new site. All that is left is to push the code up to github.
 """
 
 [[content]]
 kind = "paragraph"
 title = "Style and CSS"
 body = """
-- influences
-- coolers.co
-- fonts / line spacing / sizing 
-"""
-
-[[content]]
-kind = "paragraph"
-title = "Hosting"
-body = """
-- github pages w/ domain name
+The style of the site is very spartan and minimal. I was influenced by <a href="http://fabiensanglard.net/">Fabian Sanglard's</a> site as well as <a href="https://bradfitz.com/2020/01/27/leaving-google">Brad Fitz's</a> site.  This is due to reasons the first of which is that I am not a designer, the second is I wanted to make something clean and light that emphasized the content. Originally I had a dark background with light text but after consulting some designer friends they talked me out of this and I switched to a light background. I used <a href="">coolers.co</a> to find the hue I wanted and then I adjusted the brightness until I had a color that I liked. I did notice that it looks very different on some less color accurate monitors. While I do love monospaced fonts I wanted to have some contrast between the body text and the code snippets so I opted to go sans-serif. It Trebuchet on Windows and Helvetica on macOS and who knows on linux (I have voidlinux setup to use Helvetica). Another tip that my designer friends gave me was to space out the text more than I originally had it to improve readability.
 """
 
 [[content]]
 kind = "paragraph"
 title = "How well does it work?"
 body = """
-- DRY!
-- easy to deploy
-- updating the models, templates and data not centralized
+So far this is working out pretty good for me. My goal wasn't to build the next Static Site Generator to be used by the masses but to build a custom one that worked for me. I think it is doing the job well. I don't have any <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">repitition</a> of data. Running the make command after writing a post is a piece of cake. If I need to add a new template section I can just write it in the <code>tmpl</code> file and then edit the model to have the property.
 """
-
-[[content]]
-kind = "list"
-title = "Resources"
-items = [
-	"cooler.co",
-	"Go Template FuncMap blog",
-]

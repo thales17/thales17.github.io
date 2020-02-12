@@ -5,9 +5,9 @@
 		<description>Adam Richardson&#39;s personal blog (home)</description>
 		
 		<item>
-			<title>How this blog works</title>
+			<title>How I made this custom static site blog using only Go Web Templates and TOML</title>
 			<link>https://www.adamjrichardson.com/how_blog_works.html</link>
-			<description>How I made this custom static site blog using only Go Web Templates and TOML</description>
+			<description>I started a personal blog. My first post is titled: How I made this custom static site blog using only Go Web Templates and TOML</description>
 		</item>
 		
 	</channel>
