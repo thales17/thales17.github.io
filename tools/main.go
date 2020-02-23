@@ -14,12 +14,14 @@ import (
 )
 
 type Content struct {
-	Kind   string
-	Body   string
-	Source string
-	Alt    string
-	Items  []string
-	Title  string
+	Kind    string
+	Body    string
+	Source  string
+	Alt     string
+	Items   []string
+	Title   string
+	Left    bool
+	Feature bool
 }
 
 type Post struct {

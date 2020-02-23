@@ -14,7 +14,7 @@
 		{{else if eq .Kind "code"}}
 		<pre>{{.Body}}</pre>
 		{{else if eq .Kind "image"}}
-		<img src="{{.Source}}" alt="{{.Alt}}">
+		<img src="{{.Source}}" alt="{{.Alt}}" {{ if .Left }}class="left" {{else if .Feature }}class="feature"{{ end }}>
 		{{else if eq .Kind "list"}}
 		<ul>
 			{{range .Items}}
