@@ -5,6 +5,7 @@ filename = "about.html"
 kind = "image"
 source = "assets/photo.png"
 alt = "My photo"
+left = true
 
 [[content]]
 kind = "paragraph"
