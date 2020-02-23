@@ -1,0 +1,78 @@
+title = "VVVVVV inspired game written in C w/ SDL2"
+date = "02/23/2020"
+description = "Inspired by Terry Cavanaugh's recent opensourcing of indie hit VVVVVV, I wrote my own take on the gravity flip platformer in C with SDL2"
+filename = "bbbbbb.html"
+
+[[content]]
+kind = "paragraph"
+title = "Why?"
+body = """
+- VVVVVV was a fun indie hit that was recently open sourced
+- Code was terrible but showed tremendous willpower and perseverance
+- Also inspired by PICO-8 and TIC-80, small sandbox
+- Inspired I tried to make my own version of the game, BBBBBB
+"""
+
+[[content]]
+kind = "paragraph"
+title = "What?"
+body = """
+- C program that uses SDL2
+- All assets are created through code images and sounds
+- The game can become an editor by pressing CTRL-E
+- Sprite drawing tool 
+"""
+
+[[content]]
+kind = "paragraph"
+title = "How Graphics?"
+body = """
+- Grid based renderer
+- Draw grid pattern
+- Serialized grid data
+- Sprite data
+- Level data
+- Background effects
+- Doom Fire effects
+"""
+
+[[content]]
+kind = "paragraph"
+title = "How Input?"
+body = """
+- Use GetKeyboard state rather than events
+- Keep a copy of the last frames input and use for key down and up detection
+- Differing between playmode and edit mode for input
+- Global state variables
+"""
+
+[[content]]
+kind = "paragraph"
+title = "How Game Logic and Physics?"
+body = """
+- Gameloop, handle_input, update, render
+- Framerate independent game speed and timing around the update function
+- Apply input state to the player actor
+- Apply gravity and collide with platforms
+- Respawn player if they fall off the edge
+"""
+
+[[content]]
+kind = "paragraph"
+title = "How Sound?"
+body = """
+- Sound generated with SDL Sound
+- Simple functions that can be called from other parts of the program
+- Synth that has 4 different tones that can each be played simultaneously
+- SDL Threading and mutex to mute sound effect once its duration is complete
+"""
+
+[[content]]
+kind = "paragraph"
+title = "Closing thoughts"
+body = """
+- Overall I'm happy with the results, didn't want to take this super far
+- I wish I had better state management
+- No UI or gamestates beyond playing or editing
+- Checkout the code on github
+"""
