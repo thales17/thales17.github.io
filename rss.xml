@@ -5,6 +5,12 @@
 		<description>Adam Richardson&#39;s personal blog (home)</description>
 		
 		<item>
+			<title>Doom Fire in PICO-8</title>
+			<link>https://adamjrichardson.com/doomfire_p8.html</link>
+			<description>Fire effect from PSX doom made in PICO-8</description>
+		</item>
+		
+		<item>
 			<title>BBBBBB, a VVVVVV inspired game written in C with SDL2</title>
 			<link>https://adamjrichardson.com/bbbbbb.html</link>
 			<description>Inspired by Terry Cavanagh&#39;s recent open-sourcing of indie hit VVVVVV, I wrote my own take on the gravity flip platformer in C with SDL2</description>

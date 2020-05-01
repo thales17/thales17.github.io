@@ -1,0 +1,18 @@
+title = "Doom Fire in PICO-8"
+date = "05/01/2020"
+description = "Fire effect from PSX doom made in PICO-8"
+filename = "doomfire_p8.html"
+
+[[content]]
+kind = "image"
+source = "assets/doomfire_0.gif"
+alt = "Doom Fire from PSX implemented in PICO-8"
+feature = true
+
+[[content]]
+kind = "paragraph"
+body = """PICO-8 was recently <a href="https://twitter.com/lexaloffle/status/1255857753743978496">updated</a> and that inspired me to get back into it.  I wanted to port my favorite 2D graphics, the fire effect from the title screen of the PSX version of DOOM.  Of course, I need to mention the very help guide to this effect written by <a href="http://fabiensanglard.net/doom_fire_psx/">Fabien Sanglard.</a> You can checked out the HTML export of this PICO-8 port <a href="pico8/doomfire.html">here</a>."""
+
+[[content]]
+kind = "paragraph"
+body = """It had been a year since I had written any Lua and the process of porting this effect from my <a href="https://github.com/thales17/BBBBBB/blob/master/fire.h">C</a> implementation was a little tricky. Many early iterations of this performed quite terribly.  The limitations of PICO-8 requirement me to change the height of the effect as well as the color depth. That being said, I am happy with how it turned out."""

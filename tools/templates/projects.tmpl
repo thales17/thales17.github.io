@@ -1,0 +1,13 @@
+{{template "header.tmpl" .}}
+    <ul class="projects">
+    {{range .Projects}}
+        <li class="project">
+            <div class="container">
+                <img src="{{.Image}}" alt="{{.Name}}">
+            </div>
+            <a href="{{.URL}}">{{.Name}}</a>
+            <a href="{{.Github}}">Code</a>
+        </li>
+    {{end}}
+    </ul>
+{{template "footer.tmpl"}}

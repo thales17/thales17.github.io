@@ -41,6 +41,15 @@ type Project struct {
 	Github string
 }
 
+type Projects struct {
+	Title       string
+	Filename    string
+	Description string
+	URL         string
+	Image       string
+	Projects    []Project
+}
+
 type Home struct {
 	Title       string
 	Description string
@@ -50,22 +59,21 @@ type Home struct {
 	Posts       []Post
 	About       Post
 	Resume      Post
-	Projects    []Project
+	Projects    Projects
 }
 
-func main() {
+var outputDir = ".."
+var htmlSafe = func(html string) template.HTML {
+	return template.HTML(html)
+}
 
+func parseTOML() *Home {
 	homeTOML := "data/home.toml"
 	aboutTOML := "data/about.toml"
 	resumeTOML := "data/resume.toml"
 	projectTOML := "data/projects.toml"
 	postDir := "data/posts"
-	outputDir := ".."
-	htmlSafe := func(html string) template.HTML {
-		return template.HTML(html)
-	}
 
-	// Parse the Input
 	home := Home{}
 	if _, err := toml.DecodeFile(homeTOML, &home); err != nil {
 		log.Fatal(err)
@@ -111,7 +119,25 @@ func main() {
 		return t1.After(t2)
 	})
 
-	// Write the Output
+	return &home
+}
+
+func render(data interface{}, tmpl *template.Template, filename string) error {
+	output, err := os.OpenFile(path.Join(outputDir, filename), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Creating %s...\n", filename)
+	err = tmpl.Execute(output, data)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func renderHome(home *Home) {
 	tmpl, err := template.New("home.tmpl").Funcs(template.FuncMap{
 		"htmlSafe": htmlSafe,
 	}).ParseFiles(
@@ -123,19 +149,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	outputHome, err := os.OpenFile(path.Join(outputDir, "index.html"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	err = render(home, tmpl, "index.html")
 	if err != nil {
 		log.Fatal(err)
 	}
+}
 
-	fmt.Println("Creating index.html...")
-	err = tmpl.Execute(outputHome, home)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	tmpl, err = template.ParseFiles(
+func renderRSS(home *Home) {
+	tmpl, err := template.ParseFiles(
 		"templates/rss.tmpl",
 	)
 
@@ -143,17 +164,31 @@ func main() {
 		log.Fatal(err)
 	}
 
-	outputRSS, err := os.OpenFile(path.Join(outputDir, "rss.xml"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	err = render(home, tmpl, "rss.xml")
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Creating rss.xml...")
-	err = tmpl.Execute(outputRSS, home)
+}
+
+func renderProjects(home *Home) {
+	tmpl, err := template.ParseFiles(
+		"templates/projects.tmpl",
+		"templates/header.tmpl",
+		"templates/footer.tmpl",
+	)
+
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	tmpl, err = template.New("post.tmpl").Funcs(template.FuncMap{
+	err = render(home.Projects, tmpl, "projects.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func renderPosts(home *Home) {
+	tmpl, err := template.New("post.tmpl").Funcs(template.FuncMap{
 		"htmlSafe": htmlSafe,
 	}).ParseFiles(
 		"templates/post.tmpl",
@@ -165,49 +200,29 @@ func main() {
 		log.Fatal(err)
 	}
 
-	outputAbout, err := os.OpenFile(path.Join(outputDir, "about.html"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	err = render(home.About, tmpl, "about.html")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Creating about.html...")
-	err = tmpl.Execute(outputAbout, home.About)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	outputResume, err := os.OpenFile(path.Join(outputDir, "resume.html"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Creating resume.html...")
-	err = tmpl.Execute(outputResume, home.Resume)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	outputProject, err := os.OpenFile(path.Join(outputDir, "projects.html"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Creating projects.html...")
-	err = tmpl.Execute(outputProject, home.Projects)
+	err = render(home.Resume, tmpl, "resume.html")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, p := range home.Posts {
-		fmt.Printf("Creating %s...\n", p.Filename)
-		outputPost, err := os.OpenFile(path.Join(outputDir, p.Filename), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		err = tmpl.Execute(outputPost, p)
+		err = render(p, tmpl, p.Filename)
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
+}
+
+func main() {
+	home := parseTOML()
+
+	renderHome(home)
+	renderRSS(home)
+	renderProjects(home)
+	renderPosts(home)
 }
