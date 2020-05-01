@@ -34,6 +34,13 @@ type Post struct {
 	Content     []Content
 }
 
+type Project struct {
+	Name   string
+	Image  string
+	URL    string
+	Github string
+}
+
 type Home struct {
 	Title       string
 	Description string
@@ -43,6 +50,7 @@ type Home struct {
 	Posts       []Post
 	About       Post
 	Resume      Post
+	Projects    []Project
 }
 
 func main() {
@@ -50,6 +58,7 @@ func main() {
 	homeTOML := "data/home.toml"
 	aboutTOML := "data/about.toml"
 	resumeTOML := "data/resume.toml"
+	projectTOML := "data/projects.toml"
 	postDir := "data/posts"
 	outputDir := ".."
 	htmlSafe := func(html string) template.HTML {
@@ -81,6 +90,10 @@ func main() {
 	}
 
 	if _, err := toml.DecodeFile(resumeTOML, &home.Resume); err != nil {
+		log.Fatal(err)
+	}
+
+	if _, err := toml.DecodeFile(projectTOML, &home.Projects); err != nil {
 		log.Fatal(err)
 	}
 
@@ -170,6 +183,17 @@ func main() {
 
 	fmt.Println("Creating resume.html...")
 	err = tmpl.Execute(outputResume, home.Resume)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	outputProject, err := os.OpenFile(path.Join(outputDir, "projects.html"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Creating projects.html...")
+	err = tmpl.Execute(outputProject, home.Projects)
 	if err != nil {
 		log.Fatal(err)
 	}
