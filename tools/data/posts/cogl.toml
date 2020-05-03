@@ -1,0 +1,37 @@
+title = "Conway's Game of Life in PICO-8"
+date = "05/03/2020"
+description = "Conway's Game of Life in PICO-8"
+filename = "cogl_p8.html"
+
+[[content]]
+kind = "image"
+source = "assets/cogl_0.gif"
+alt = "Conway's Game of Life implemented in PICO-8"
+feature = true
+
+[[content]]
+kind = "paragraph"
+# What is it and link
+body = """For my next PICO-8 project I wanted to implement <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>. I chose this project since I felt it would push me to use some of the more advanced memory features of PICO-8. You can check out my implementation <a href="pico8/cogl.html">here</a>, press the right key to reseed the grid and restart (hold for a cool static effect). The code is accessible <a href="https://github.com/thales17/pico8-carts/blob/master/demos/cogl.p8">here</a> on Github."""
+
+[[content]]
+kind = "paragraph"
+# Memory in PICO-8 and how I stored the data
+body = """To properly implement Conway's Game of Life you need to store the grid position of each element for the current frame as well as the previous. I wanted to use binary data for this so I consulted the <a href="https://pico-8.fandom.com/wiki/Memory">memory map</a>. I determined that I should have enough memory in the <strong>General Use RAM (0x4300-0x5DFF)</strong> to store the current frame as well as the previous for each pixel in the 128x128 grid. To do this I needed to write a renderer for the data that reads each bit and uses its index to find the x and y coordinate of the pixel."""
+
+[[content]]
+kind = "paragraph"
+# Performance and scaling
+body = """After initially completing this I found the performance to be very slow (1-2fps). I then refactored the code so I could easily adjust the scale of the grid. The only downside with this is that the size of each rectangle needs to be a power of 2 due to the way the data is stored in memory. Using a 2x2 cell size rather than 1x1 improved performance to around 5fps but it was still too slow for my tastes. I think the sweet spot for PICO-8 I found was 4x4."""
+
+[[content]]
+kind = "image"
+source = "assets/cogl_2.gif"
+alt = "Slow 1x1 Conway's Game of Life"
+feature = false
+
+[[content]]
+kind = "image"
+source = "assets/cogl_1.gif"
+alt = "Faster but still slow 2x2 Conway's Game of Life"
+feature = false

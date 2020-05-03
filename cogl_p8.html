@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title>Conway&#39;s Game of Life in PICO-8</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Conway&#39;s Game of Life in PICO-8">
+		
+		<meta property="og:title" content="Conway&#39;s Game of Life in PICO-8">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://adamjrichardson.com/cogl_p8.html">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="Conway&#39;s Game of Life in PICO-8">
+	
+		<style>
+body { 
+	color: black; 
+	background-color: #eff4f3;
+	font-family:  "Liberation Sans", Helvetica, "Trebuchet MS", sans-serif;
+	margin: auto;
+	padding: 1em;
+	max-width: 72em;
+}
+ 
+pre { 
+	background-color: black; 
+	color: white; 
+	font-size: 12pt; 
+	padding: 1em;
+	max-height: 50em;
+	overflow: auto;
+	-moz-tab-size: 2;
+	tab-size: 2;
+	font-family: monospace;
+}
+
+a {
+	font-weight: bold;
+	padding-right: .25em;
+}
+
+a:visited {
+	color: black;
+}
+
+a:link {
+	color: black;
+}
+
+img {
+	max-width: 100%;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+p {
+	text-align: justify;
+	line-height: 1.5em;
+}
+
+nav {
+	width: 100%;
+	text-align: right;
+	margin-bottom: 2em;
+}
+
+ul {
+}
+
+li {
+	margin-bottom: 1em;
+}
+
+.left {
+	float: left;
+}
+
+.feature {
+	width: 50%;
+	margin: 0 25%;
+}
+
+.projects {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.project {
+	display: inline-grid;
+	margin: 1em;
+}
+.project > .feature-img {
+	width: 192px;
+	height: 202px;
+}
+
+.project > a {
+	line-height: 1.3em;
+	max-width: 192px;
+}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">Home</a>
+			<a href="about.html">About</a>
+			<a href="projects.html">Projects</a>
+			<a href="rss.xml">RSS</a>
+			<a href="https://github.com/thales17">Github</a>
+		</nav>
+	
+	
+		<h1>Conway&#39;s Game of Life in PICO-8</h1>
+	
+	
+		<h5>05/03/2020</h5>
+	
+	
+		
+		
+		<img src="assets/cogl_0.gif" alt="Conway&#39;s Game of Life implemented in PICO-8" class="feature">
+		
+	
+		
+		
+		<p>For my next PICO-8 project I wanted to implement <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>. I chose this project since I felt it would push me to use some of the more advanced memory features of PICO-8. You can check out my implementation <a href="pico8/cogl.html">here</a>, press the right key to reseed the grid and restart (hold for a cool static effect). The code is accessible <a href="https://github.com/thales17/pico8-carts/blob/master/demos/cogl.p8">here</a> on Github.</p>
+		
+	
+		
+		
+		<p>To properly implement Conway's Game of Life you need to store the grid position of each element for the current frame as well as the previous. I wanted to use binary data for this so I consulted the <a href="https://pico-8.fandom.com/wiki/Memory">memory map</a>. I determined that I should have enough memory in the <strong>General Use RAM (0x4300-0x5DFF)</strong> to store the current frame as well as the previous for each pixel in the 128x128 grid. To do this I needed to write a renderer for the data that reads each bit and uses its index to find the x and y coordinate of the pixel.</p>
+		
+	
+		
+		
+		<p>After initially completing this I found the performance to be very slow (1-2fps). I then refactored the code so I could easily adjust the scale of the grid. The only downside with this is that the size of each rectangle needs to be a power of 2 due to the way the data is stored in memory. Using a 2x2 cell size rather than 1x1 improved performance to around 5fps but it was still too slow for my tastes. I think the sweet spot for PICO-8 I found was 4x4.</p>
+		
+	
+		
+		
+		<img src="assets/cogl_2.gif" alt="Slow 1x1 Conway&#39;s Game of Life" >
+		
+	
+		
+		
+		<img src="assets/cogl_1.gif" alt="Faster but still slow 2x2 Conway&#39;s Game of Life" >
+		
+	
+	</body>
+</html>
+

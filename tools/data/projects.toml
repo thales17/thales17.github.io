@@ -2,7 +2,13 @@ title = "Projects"
 filename = "projects.html"
 
 [[projects]]
-name = "Doom Fire"
+name = "Conway's Game of Life in PICO-8"
+image = "assets/cogl_0.gif"
+url = "cogl_p8.html"
+github = "https://github.com/thales17/pico8-carts/blob/master/demos/cogl.p8"
+
+[[projects]]
+name = "Doom Fire in PICO-8"
 image = "assets/doomfire_0.gif"
 url = "doomfire_p8.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/demos/doomfire.p8"
