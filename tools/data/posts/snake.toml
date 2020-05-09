@@ -1,0 +1,26 @@
+title = "PICO-8 Snake"
+date = "05/08/2020"
+description = "I made the classic game Snake in PICO-8"
+filename = "snake_p8.html"
+
+[[content]]
+kind = "image"
+source = "assets/snake_1.gif"
+alt = "Snake implemented in PICO-8"
+feature = true
+
+[[content]]
+kind = "paragraph"
+body = """I chose to make an implementation of Snake because I had never done it before and I wanted to understand how the slither algorithm worked. My gut told me that it had to be very straight forward since my first exposure to the game was on my TI-86 graphing calculator in high school. So my first task was to try to determine what the data structures for the game should be."""
+
+[[content]]
+kind = "paragraph"
+body = """I wanted to keep the overall design very simplistic so I set the rule that as the snake eats one apple it grows by one cell. I also setup the game state to be in a grid that is made up of snake cells and apples. In the case of the head of the snake the renderer draws it in a brighter green color. I used a linked list structure for the snake. After each game tick the direction that the previous snake cell moved is passed to the next cell."""
+
+[[content]]
+kind = "paragraph"
+body = """One of the common pitfalls with the Snake game revolves around how you find the random location for the apple once the snake has eaten the current apple.  A naive approach will just pick a random grid cell, if it is not empty pick another one.  The problem with this method is that as the snake grows larger the number of collisions will grow.  An unbounded search will be vulnerable to a stack overflow.  Additionally a perfect game of snake would end with the snake occupying all of the cells in the grid. My solution to this problem is to exhaustively build an array that has only the indices of the empty cells, then pick a random index from that array."""
+
+[[content]]
+kind = "paragraph"
+body = """For the finished game I ended up keeping the game speed fixed. I originally was going to have the speed be adjustable based on how long the snake got.  After play testing the game I found the first speed to be fast enough. The game keeps track of the amount of frames that have elapsed and if it is greater than the tick amount it resets the frame count and advances the world. Initially I was only polling the input when the world was advancing. This created a very narrow window for the player to input their actions. So instead of doing this I opted to store the user input in a global and poll the controller every frame. Snake needs to be as responsive as possible!  You can play it <a href="pico8/snake.html">here</a>"""

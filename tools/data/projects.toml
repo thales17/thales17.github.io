@@ -2,6 +2,12 @@ title = "Projects"
 filename = "projects.html"
 
 [[projects]]
+name = "PICO-8 Snake"
+image = "assets/snake_1.gif"
+url = "snake_p8.html"
+github = "https://github.com/thales17/pico8-carts/blob/master/games/snake.p8"
+
+[[projects]]
 name = "Conway's Game of Life in PICO-8"
 image = "assets/cogl_0.gif"
 url = "cogl_p8.html"
