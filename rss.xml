@@ -5,6 +5,12 @@
 		<description>Adam Richardson&#39;s personal blog (home)</description>
 		
 		<item>
+			<title>Maze Generation</title>
+			<link>https://adamjrichardson.com/maze_p8.html</link>
+			<description>Maze Generation in PICO-8</description>
+		</item>
+		
+		<item>
 			<title>PICO-8 Snake</title>
 			<link>https://adamjrichardson.com/snake_p8.html</link>
 			<description>I made the classic game Snake in PICO-8</description>

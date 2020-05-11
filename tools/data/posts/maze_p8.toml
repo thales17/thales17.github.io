@@ -1,0 +1,18 @@
+title = "Maze Generation"
+date = "05/10/2020"
+description = "Maze Generation in PICO-8"
+filename = "maze_p8.html"
+
+[[content]]
+kind = "image"
+source = "assets/maze_0.gif"
+alt = "Maze Generation in PICO-8"
+feature = true
+
+[[content]]
+kind = "paragraph"
+body = """This maze demo is a perfect visualization of stack backtracking. The maze is drawn by randomly picking a cardinal direction from a given cell and then continuing down that path. If there are no unvisited cells then backtrack until you find one. I artificially slowed the algorithm down to only draw one cell per frame so you can see the computer drawing out the maze. This project was inspired by this awesome One Lone Coder <a href="https://www.youtube.com/watch?v=Y37-gB83HKE">video</a>."""
+
+[[content]]
+kind = "paragraph"
+body= """You can view the code for this <a href="https://github.com/thales17/pico8-carts/blob/master/demos/maze.p8">here</a> and run the PICO-8 cart <a href="pico8/maze.html">here</a>."""

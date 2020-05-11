@@ -1,15 +1,15 @@
 <html>
 	<head>
-		<title>Adam Richardson&#39;s Blog</title>
+		<title>Maze Generation</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Adam Richardson&#39;s personal blog (home)">
+		<meta name="description" content="Maze Generation in PICO-8">
 		
-		<meta property="og:title" content="Adam Richardson&#39;s Blog">
+		<meta property="og:title" content="Maze Generation">
 		<meta property="og:type" content="article">
-		<meta property="og:url" content="https://adamjrichardson.com">
-		<meta property="og:image" content="shrug.jpg">
-		<meta property="og:description" content="Adam Richardson&#39;s personal blog (home)">
+		<meta property="og:url" content="https://adamjrichardson.com/maze_p8.html">
+		<meta property="og:image" content="">
+		<meta property="og:description" content="Maze Generation in PICO-8">
 	
 		<style>
 body { 
@@ -108,24 +108,28 @@ li {
 			<a href="https://github.com/thales17">Github</a>
 		</nav>
 	
-	<h1>Adam Richardson&#39;s Blog</h1>
-	<p>Welcome to my personal blog.
-</p>
-	<ul>
 	
-		<li>05/10/2020: <a href="maze_p8.html">Maze Generation</a></li>
+		<h1>Maze Generation</h1>
 	
-		<li>05/08/2020: <a href="snake_p8.html">PICO-8 Snake</a></li>
 	
-		<li>05/03/2020: <a href="cogl_p8.html">Conway&#39;s Game of Life in PICO-8</a></li>
+		<h5>05/10/2020</h5>
 	
-		<li>05/01/2020: <a href="doomfire_p8.html">Doom Fire in PICO-8</a></li>
 	
-		<li>02/23/2020: <a href="bbbbbb.html">BBBBBB, a VVVVVV inspired game written in C with SDL2</a></li>
+		
+		
+		<img src="assets/maze_0.gif" alt="Maze Generation in PICO-8" class="feature">
+		
 	
-		<li>02/12/2020: <a href="how_blog_works.html">How I made this custom static site blog using only Go Web Templates and TOML</a></li>
+		
+		
+		<p>This maze demo is a perfect visualization of stack backtracking. The maze is drawn by randomly picking a cardinal direction from a given cell and then continuing down that path. If there are no unvisited cells then backtrack until you find one. I artificially slowed the algorithm down to only draw one cell per frame so you can see the computer drawing out the maze. This project was inspired by this awesome One Lone Coder <a href="https://www.youtube.com/watch?v=Y37-gB83HKE">video</a>.</p>
+		
 	
-	</ul>
+		
+		
+		<p>You can view the code for this <a href="https://github.com/thales17/pico8-carts/blob/master/demos/maze.p8">here</a> and run the PICO-8 cart <a href="pico8/maze.html">here</a>.</p>
+		
+	
 	</body>
 </html>
 

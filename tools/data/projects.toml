@@ -2,6 +2,13 @@ title = "Projects"
 filename = "projects.html"
 
 [[projects]]
+name = "Maze Generation"
+image = "assets/maze_0.gif"
+url = "maze_p8.html"
+github = "https://github.com/thales17/pico8-carts/blob/master/demos/maze.p8"
+
+
+[[projects]]
 name = "PICO-8 Snake"
 image = "assets/snake_1.gif"
 url = "snake_p8.html"
