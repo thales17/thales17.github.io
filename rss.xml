@@ -5,6 +5,12 @@
 		<description>Adam Richardson&#39;s personal blog (home)</description>
 		
 		<item>
+			<title>Invaders in PICO-8</title>
+			<link>https://adamjrichardson.com/invaders.html</link>
+			<description>After multiple attempts a somewhat decent version of Space Invaders is completed</description>
+		</item>
+		
+		<item>
 			<title>Maze Generation</title>
 			<link>https://adamjrichardson.com/maze_p8.html</link>
 			<description>Maze Generation in PICO-8</description>
