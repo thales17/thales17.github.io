@@ -2,34 +2,46 @@ title = "Projects"
 filename = "projects.html"
 
 [[projects]]
+name = "CCCCCC"
+image = "assets/cccccc_1.gif"
+url = "cccccc.html"
+github = "https://github.com/thales17/pico8-carts/blob/master/games/cccccc.p8"
+runurl = "pico8/cccccc.html"
+
+[[projects]]
 name = "Invaders in PICO-8"
 image = "assets/invaders_0.gif"
 url = "invaders.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/games/invaders.p8"
+runurl = "pico8/invaders.html"
 
 [[projects]]
 name = "Maze Generation"
 image = "assets/maze_0.gif"
 url = "maze_p8.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/demos/maze.p8"
+runurl = "pico8/maze.html"
 
 [[projects]]
 name = "PICO-8 Snake"
 image = "assets/snake_1.gif"
 url = "snake_p8.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/games/snake.p8"
+runurl = "pico8/snake.html"
 
 [[projects]]
 name = "Conway's Game of Life in PICO-8"
 image = "assets/cogl_0.gif"
 url = "cogl_p8.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/demos/cogl.p8"
+runurl = "pico8/cogl.html"
 
 [[projects]]
 name = "Doom Fire in PICO-8"
 image = "assets/doomfire_0.gif"
 url = "doomfire_p8.html"
 github = "https://github.com/thales17/pico8-carts/blob/master/demos/doomfire.p8"
+runurl = "pico8/doomfire.html"
 
 [[projects]]
 name = "BBBBBB"

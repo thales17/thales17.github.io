@@ -5,6 +5,12 @@
 		<description>Adam Richardson&#39;s personal blog (home)</description>
 		
 		<item>
+			<title>CCCCCC the sequel to BBBBBB</title>
+			<link>https://adamjrichardson.com/cccccc.html</link>
+			<description>Here comes the sequel to BBBBBB, but this time with more levels and enemies!</description>
+		</item>
+		
+		<item>
 			<title>Invaders in PICO-8</title>
 			<link>https://adamjrichardson.com/invaders.html</link>
 			<description>After multiple attempts a somewhat decent version of Space Invaders is completed</description>

@@ -13,6 +13,7 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+// Content represents a single content item in a post
 type Content struct {
 	Kind    string
 	Body    string
@@ -24,6 +25,7 @@ type Content struct {
 	Feature bool
 }
 
+// Post represents the entire contents of a post
 type Post struct {
 	Date        string
 	Title       string
@@ -34,13 +36,16 @@ type Post struct {
 	Content     []Content
 }
 
+// Project represents a single project
 type Project struct {
 	Name   string
 	Image  string
 	URL    string
 	Github string
+	RunURL string
 }
 
+// Projects represent the contents of the project page
 type Projects struct {
 	Title       string
 	Filename    string
@@ -50,6 +55,7 @@ type Projects struct {
 	Projects    []Project
 }
 
+// Home represents the contents of the home page
 type Home struct {
 	Title       string
 	Description string

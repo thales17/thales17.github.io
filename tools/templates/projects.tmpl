@@ -4,10 +4,9 @@
         <li class="project">
             <div class="feature-img">
                 <img src="{{.Image}}" alt="{{.Name}}">
-                
             </div>
             <a href="{{.URL}}">{{.Name}}</a>
-            <a href="{{.Github}}">Code</a>
+            <span><a href="{{.Github}}">Code</a>{{if .RunURL}} <a href="{{.RunURL}}">Run</a>{{end}}</span>
         </li>
     {{end}}
     </ul>
